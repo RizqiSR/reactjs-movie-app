@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.navbar {
+  padding: 8px 35px;
+}
+
+.header-wrapper {
+  width: 100%;
+  height: 300px;
+  background: url('public/img/bumi.jpg');
+  background-size: cover;
+}
+
+.header-text {
+  padding: 0 50px;
+  height: 100%;
+}
+
+.card-wrapper {
+  padding: 30px;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  overflow-y: scroll;
+}
+
+.card-img-overlay:hover {
+  opacity: 1;
+}
+
+.overlay-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-text {
+  font-size: 10px;
+}
+
+.rating {
+  display: flex;
+  line-height: 100%;
+
+}
+
+.rating-point {
+  font-size: 19px;
+}
+
+.rating-star {
+  height: 18px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0dcaf0; 
+  border-radius: 10px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  font-style: italic;
+  border: 1px soid red;
+}
+
+.tmdb-logo {
+  width: 80px;
+}
