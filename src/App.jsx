@@ -46,6 +46,13 @@ function App() {
     });
   }, []);
 
+  function truncateOverview(text, maxChars) {
+    if (text.length <= maxChars) {
+      return text;
+    } else {
+      return `${text.slice(0, maxChars)}...`;
+    }
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark shadow-lg fixed-top">
@@ -111,42 +118,41 @@ function App() {
         </div>
       </div>
       <div className="card-wrapper text-start">
-        <div className="row row-cols-2 row-cols-sm-2 row-cols-md-6">
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
           {movies.map((movie) => (
             <div className="col" key={movie.id}>
-              <div className="card mb-5">
+              <div className="card">
                 <img
                   src={`${imageURL}/${movie.poster_path}`}
                   className="card-img-top rounded"
                 />
-                <div className="card-img-overlay bg-black bg-opacity-75">
-                  <div className="overlay-container">
-                    <div className="overrlay-text">
-                      <h5 className="card-title text-info">
-                        {movie.title}
-                        <span className="">
-                          {" "}
-                          ({new Date(movie.release_date).getFullYear()})
-                        </span>
-                      </h5>
-                      <p className="card-text text-secondary-subtle">
-                        {movie.overview}
-                      </p>
-                    </div>
 
-                    <div className="overlay-rating mt-3">
-                      <div className="rating">
-                        <p className="rating-point text-warning me-1">
-                          {movie.vote_average.toFixed(1)}
-                        </p>
-                        <img
-                          className="rating-star"
-                          src={`./img/ratings/rating-${Math.floor(
-                            movie.vote_average
-                          )}.png`}
-                          alt=""
-                        />
-                      </div>
+                <div className="overlay-content bg-opacity-75 rounded">
+                  <div className="overlay-text">
+                    <h5 className="card-title text-info">
+                      {movie.title}
+                      <span className="">
+                        {" "}
+                        ({new Date(movie.release_date).getFullYear()})
+                      </span>
+                    </h5>
+                    <p className="card-text text-secondary-subtle">
+                      {truncateOverview(movie.overview, 80)}
+                    </p>
+                  </div>
+
+                  <div className="overlay-rating">
+                    <div className="rating">
+                      <p className="rating-point text-warning me-1">
+                        {movie.vote_average.toFixed(1)}
+                      </p>
+                      <img
+                        className="rating-star"
+                        src={`./img/ratings/rating-${Math.floor(
+                          movie.vote_average
+                        )}.png`}
+                        alt=""
+                      />
                     </div>
                   </div>
                 </div>
@@ -159,7 +165,7 @@ function App() {
         <a href="https://www.themoviedb.org/">
           <img
             className="tmdb-logo"
-            src="public\TMDb_logo.svg"
+            src="\TMDb_logo.svg"
             alt="The Movie Database Logo"
           />
         </a>
