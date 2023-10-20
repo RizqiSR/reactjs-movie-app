@@ -25,6 +25,28 @@ body {
   height: 100%;
 }
 
+input[type="search"] {
+  font-size: 12px;
+  font-weight: 1;
+}
+
+.movie-search-input {
+  width: 40%;
+  height: 27px;
+}
+
+.search-btn {
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-btn > i {
+  font-size: 12px;
+}
+
 .card-wrapper {
   padding: 30px;
 }
@@ -44,6 +66,7 @@ body {
 .card-title {
   font-size: 12px;
   margin-bottom: 3px;
+  line-height: 1;
 }
 
 .card-text {
