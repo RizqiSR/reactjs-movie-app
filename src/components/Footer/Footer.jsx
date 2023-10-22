@@ -1,4 +1,4 @@
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className="footer text-white bg-dark pt-3">
       <a href="https://www.themoviedb.org/">
@@ -14,3 +14,5 @@ export const Footer = () => {
     </div>
   );
 }
+
+export default Footer;

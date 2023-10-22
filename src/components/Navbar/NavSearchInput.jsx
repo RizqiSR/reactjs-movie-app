@@ -1,4 +1,4 @@
-export const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
+const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
   return (
     <form className="movie-search-input d-flex border-secondary" role="search">
       <input
@@ -19,3 +19,5 @@ export const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
     </form>
   );
 }
+
+export default NavSearchInput

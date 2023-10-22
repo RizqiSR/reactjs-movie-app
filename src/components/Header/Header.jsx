@@ -1,5 +1,4 @@
-
-export const Header = () => {
+const Header = () => {
   return (
     <div className="header-wrapper mt-5">
       <div className="header-text text-white row align-content-center bg-body bg-opacity-75 ">
@@ -11,3 +10,5 @@ export const Header = () => {
     </div>
   );
 }
+
+export default Header;

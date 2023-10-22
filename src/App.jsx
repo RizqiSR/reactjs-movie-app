@@ -2,14 +2,14 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { getMovieList, searchMovies } from "./utils/fetchDataAPI";
 import { truncateOverview } from "./utils/truncateCharsOverview";
-import { Navbar } from "./components/Navbar/Navbar";
-import { NavBrand } from "./components/Navbar/NavBrand";
-import { NavList } from "./components/Navbar/NavList";
-import { NavSearchInput } from "./components/Navbar/NavSearchInput";
-import { Header } from "./components/Header/Header";
-import { Main } from "./components/Main/Main";
-import { MovieCards } from "./components/Main/MovieCards";
-import { Footer } from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import NavBrand from "./components/Navbar/NavBrand";
+import NavList from "./components/Navbar/NavList";
+import NavSearchInput from "./components/Navbar/NavSearchInput";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import MovieCards from "./components/Main/MovieCards";
+import Footer from "./components/Footer/Footer";
 
 const navContents = ["Home", "Movies", "TV Shows", "More"];
 

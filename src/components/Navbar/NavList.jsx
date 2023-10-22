@@ -1,6 +1,6 @@
-import { Nav } from "./Nav";
+import Nav from "./Nav";
 
-export const NavList = ({ navContents }) => {
+const NavList = ({ navContents }) => {
   return (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -11,3 +11,5 @@ export const NavList = ({ navContents }) => {
     </div>
   );
 }
+
+export default NavList

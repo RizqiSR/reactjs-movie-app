@@ -1,4 +1,4 @@
-export const Navbar = ({ children }) => {
+const Navbar = ({ children }) => {
   return (
     <nav className="navbar navbar-expand-lg bg-dark shadow-lg fixed-top">
       <div className="container-fluid">
@@ -18,3 +18,5 @@ export const Navbar = ({ children }) => {
     </nav>
   );
 }
+
+export default Navbar;

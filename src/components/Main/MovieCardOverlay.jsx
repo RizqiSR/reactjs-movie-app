@@ -1,4 +1,4 @@
-export const MovieCardOverlay = ({ movie, truncateOverview }) => {
+const MovieCardOverlay = ({ movie, truncateOverview }) => {
   return (
     <div className="overlay-content bg-opacity-75 rounded">
       <div className="overlay-text">
@@ -28,3 +28,5 @@ export const MovieCardOverlay = ({ movie, truncateOverview }) => {
     </div>
   );
 }
+
+export default MovieCardOverlay;

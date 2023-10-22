@@ -1,4 +1,4 @@
-export const Nav = ({ navContent }) => {
+const Nav = ({ navContent }) => {
   return (
     <li className="nav-item">
       <a
@@ -11,3 +11,5 @@ export const Nav = ({ navContent }) => {
     </li>
   );
 }
+
+export default Nav;
