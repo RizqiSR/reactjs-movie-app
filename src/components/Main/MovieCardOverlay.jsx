@@ -27,6 +27,6 @@ const MovieCardOverlay = ({ movie, truncateOverview }) => {
       </div>
     </div>
   );
-}
+};
 
 export default MovieCardOverlay;

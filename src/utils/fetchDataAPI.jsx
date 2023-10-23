@@ -5,7 +5,7 @@ const apiKey = import.meta.env.VITE_APP_APIKEY;
 
 export const getMovieList = async () => {
   const movieListResult = await axios.get(
-    `${baseURL}/movie/top_rated?api_key=${apiKey}`
+    `${baseURL}/trending/movie/day?api_key=${apiKey}`
   );
   return movieListResult.data.results;
 }

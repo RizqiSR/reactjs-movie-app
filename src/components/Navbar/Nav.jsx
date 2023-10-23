@@ -1,15 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 const Nav = ({ navContent }) => {
   return (
     <li className="nav-item">
-      <a
-        className={navContent === "Home" ? "nav-link active" : "nav-link"}
-        aria-current="page"
-        href="#"
+      <NavLink
+        to={navContent === "Home" ? "/" : `/${navContent}`}
+        end={true}
+        className={({ isActive }) =>
+          isActive ? "nav-link active" : "nav-link"
+        }
       >
         {navContent}
-      </a>
+      </NavLink>
     </li>
   );
-}
+};
 
 export default Nav;

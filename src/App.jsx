@@ -1,57 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { useEffect, useState } from "react";
-import { getMovieList, searchMovies } from "./utils/fetchDataAPI";
-import { truncateOverview } from "./utils/truncateCharsOverview";
-import Navbar from "./components/Navbar/Navbar";
-import NavBrand from "./components/Navbar/NavBrand";
-import NavList from "./components/Navbar/NavList";
-import NavSearchInput from "./components/Navbar/NavSearchInput";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import MovieCards from "./components/Main/MovieCards";
-import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
-const navContents = ["Home", "Movies", "TV Shows", "More"];
-
-function App() {
-  const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
-
-  const handleSubmitQuery = (e) => {
-    e.preventDefault();
-
-    if (query.length > 4) {
-      searchMovies(query).then((res) => {
-        const filteredSearchedMovies = res.filter((movie) => {
-          if (movie.poster_path != null && movie.vote_average > 0) {
-            return movie;
-          }
-        });
-        setMovies(filteredSearchedMovies);
-      });
-    }
-  };
-
-  useEffect(() => {
-    getMovieList().then((res) => {
-      setMovies(res);
-    });
-  }, []);
-
+const App = () => {
   return (
-    <>
-      <Navbar>
-        <NavBrand />
-        <NavList navContents={navContents} />
-        <NavSearchInput handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} />
-      </Navbar>
-      <Header />
-      <Main>
-        <MovieCards movies={movies} truncateOverview={truncateOverview} />
-      </Main>
-      <Footer />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/About' element={<About />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
