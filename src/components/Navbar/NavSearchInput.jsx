@@ -18,6 +18,6 @@ const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
       </button>
     </form>
   );
-}
+};
 
-export default NavSearchInput
+export default NavSearchInput;

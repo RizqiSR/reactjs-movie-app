@@ -1,22 +1,20 @@
-const Navbar = ({ children }) => {
+import NavbarContainer from "./NavbarContainer";
+import NavBrand from "./NavBrand";
+import NavList from "./NavList";
+import NavSearchInput from "./NavSearchInput";
+
+const Navbar = ({handleSubmitQuery, query, setQuery}) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark shadow-lg fixed-top">
-      <div className="container-fluid">
-        {children}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-  );
+    <NavbarContainer>
+        <NavBrand />
+        <NavList />
+        <NavSearchInput
+          handleSubmitQuery={handleSubmitQuery}
+          query={query}
+          setQuery={setQuery}
+        />
+      </NavbarContainer>
+  )
 }
 
 export default Navbar;

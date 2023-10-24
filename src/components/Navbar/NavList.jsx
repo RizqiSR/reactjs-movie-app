@@ -12,6 +12,6 @@ const NavList = () => {
       </ul>
     </div>
   );
-}
+};
 
-export default NavList
+export default NavList;

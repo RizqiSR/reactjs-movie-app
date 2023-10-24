@@ -2,14 +2,11 @@ import { useEffect, useState } from "react";
 import { getMovieList, searchMovies } from "../utils/fetchDataAPI";
 import { truncateOverview } from "../utils/truncateCharsOverview";
 import Navbar from "../components/Navbar/Navbar";
-import NavBrand from "../components/Navbar/NavBrand";
-import NavList from "../components/Navbar/NavList";
-import NavSearchInput from "../components/Navbar/NavSearchInput";
 import Header from "../components/Header/Header";
+import HomeHeader from "../components/Header/HomeHeader";
 import Main from "../components/Main/Main";
-import MovieCards from "../components/Main/MovieCards";
+import MovieCards from "../components/Cards/MovieCards";
 import Footer from "../components/Footer/Footer";
-
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -38,18 +35,16 @@ const Home = () => {
 
   return (
     <>
-      <Navbar>
-        <NavBrand />
-        <NavList />
-        <NavSearchInput handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} />
-      </Navbar>
-      <Header />
+      <Navbar handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} />
+      <Header>
+        <HomeHeader />
+      </Header>
       <Main>
         <MovieCards movies={movies} truncateOverview={truncateOverview} />
       </Main>
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

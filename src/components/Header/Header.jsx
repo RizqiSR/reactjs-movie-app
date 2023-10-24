@@ -1,16 +1,24 @@
-const Header = () => {
+import { imageURL } from "../../utils/fetchDataAPI";
+
+const Header = ({ children, movieDetails }) => {
+  const movieBackdropPath = (movieDetails) ? `url('${imageURL}${movieDetails.backdrop_path}')` : `url('public/img/bumi.jpg')`
+  const headerStyle = {
+    backgroundImage: movieBackdropPath,
+    backgroundSize: 'cover'
+  }
+
   return (
     <div className="header-container">
-    <div className="header-wrapper mt-5">
-      <div className="card-img-overlay header-overlay text-white row align-content-center bg-body bg-opacity-75 ">
-        <h1>
-          WELCOME<span className="text-info">.</span>
-        </h1>
-        <h3>Millions of movies, TV shows and people discover. Explore now.</h3>
+      <div
+        className="header-image-wrapper header-wrapper mt-5"
+        style={headerStyle}
+      >
+        <div className="card-img-overlay header-overlay text-white row align-content-center bg-body bg-opacity-50 ">
+          {children}
+        </div>
       </div>
     </div>
-    </div>
   );
-}
+};
 
 export default Header;

@@ -14,19 +14,14 @@ body {
 }
 
 .header-container {
-  /* border: 1px solid red; */
-  /* margin: 0 50px; */
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
 .header-wrapper {
   width: 100%;
-  height: 350px;
-  /* padding: 50px; */
-  background: url('/img/bumi.jpg');
-  background-size: cover;
-  /* border: 1px solid green; */
+  height: 400px;
 }
 
 .header-overlay {

@@ -1,18 +1,15 @@
 import Navbar from "../components/Navbar/Navbar";
-import NavBrand from "../components/Navbar/NavBrand";
-import NavList from "../components/Navbar/NavList";
-import NavSearchInput from "../components/Navbar/NavSearchInput";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import Main from "../components/Main/Main";
 
 const About = () => {
   return (
     <>
-      <Navbar>
-        <NavBrand />
-        <NavList />
-        <NavSearchInput />
-      </Navbar>
+      <Navbar />
       <Header />
+      <Main />
+      <Footer />
     </>
   );
 };
