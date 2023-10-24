@@ -1,5 +1,11 @@
-const Details = ({movieDetails}) => {
-  return <h1 className="text-white">{movieDetails.budget}</h1>;
+const Details = () => {
+  return (
+    <>
+      <h2 className="text-white">Top Billed Cast</h2>
+      <br />
+      <br />
+    </>
+  );
 };
 
 export default Details;

@@ -9,24 +9,25 @@ import { useState, useEffect } from "react";
 import Details from "../components/Details/Details";
 
 const MovieDetails = () => {
-  const [movieDetails, setMovieDetails] = useState(0)
-  const {movieDetailsURL} = useParams()
-  const movieID = movieDetailsURL.toString().split("-")[0]
+  const [movieDetails, setMovieDetails] = useState(0);
+  // const [movieBackdrops, setMovieBackdrops] = useState(0)
+  const { movieDetailsURL } = useParams();
+  const movieID = movieDetailsURL.toString().split("-")[0];
 
   useEffect(() => {
     getMovieDetails(movieID).then((res) => {
-      setMovieDetails(res)
-    })
-  }, [movieID])
+      setMovieDetails(res);
+    });
+  }, [movieID]);
 
   return (
     <>
       <Navbar />
       <Header movieDetails={movieDetails}>
-        <MovieDetailsHeader />
+        <MovieDetailsHeader movieDetails={movieDetails} />
       </Header>
       <Main>
-        <Details movieDetails={movieDetails} />
+        <Details />
       </Main>
       <Footer />
     </>

@@ -2,8 +2,8 @@ import axios from "axios";
 
 const baseURL = import.meta.env.VITE_APP_BASEURL;
 const apiKey = import.meta.env.VITE_APP_APIKEY;
+export const backdropsURL = import.meta.env.VITE_APP_BASEBACKDROPSURL;
 export const imageURL = import.meta.env.VITE_APP_BASEIMGURL;
-
 
 export const getMovieList = async () => {
   const movieListResult = await axios.get(
@@ -23,5 +23,12 @@ export const getMovieDetails = async (movieID) => {
   const movieDetailResult = await axios.get(
     `${baseURL}/movie/${movieID}?api_key=${apiKey}`
   );
-  return movieDetailResult.data
+  return movieDetailResult.data;
+};
+
+export const getCreditsCrew = async (movieID) => {
+  const crewResult = await axios.get(
+    `${baseURL}/movie/${movieID}/credits?api_key=${apiKey}`
+  );
+  return crewResult.data.crew;
 };
