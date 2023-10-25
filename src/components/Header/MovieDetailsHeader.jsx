@@ -1,7 +1,8 @@
 import { imageURL } from "../../utils/fetchDataAPI";
 
 const MovieDetailsHeader = ({ movieDetails }) => {
-  const genres = movieDetails.genres;
+  // const genres = movieDetails.genres;
+  // const genreList = genres.map((genre) => genre.name).join(", ");
 
   const headerMovieDetailsStyle = {
     height: "100%",
@@ -38,7 +39,7 @@ const MovieDetailsHeader = ({ movieDetails }) => {
             ({new Date(movieDetails.release_date).getFullYear()})
           </span>
         </h1>
-        <p className="fw-light">{`Crime, Drama, Thriller • ${hour} hour ${minutes} minutes • ${movieDetails.original_language}`}</p>
+        <p className="fw-light">{`• ${hour} hour ${minutes} minutes • ${movieDetails.original_language}`}</p>
         <p className="fst-italic">{movieDetails.tagline}</p>
         <h5>Overview :</h5>
         <p>{movieDetails.overview}</p>
