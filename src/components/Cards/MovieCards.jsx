@@ -9,10 +9,11 @@ const MovieCards = ({ movies, truncateOverview }) => {
   return (
     <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
       {movies.map((movie) => {
-        const splitedTitle = movie.title.toLowerCase().replace(/[:-?]|'/g, '').replace(/ {2,}/g, ' ').replaceAll(" ","-")
+        const splittedTitle = movie.title.toLowerCase().replace(/[:-]|'|[?]/g, '').replace(/ {2,}/g, ' ').replaceAll(" ","-")
+        console.log(splittedTitle);
         return (
           <Suspense key={movie.id} fallback={<Loading/>}>
-          <Link to={{ pathname: `/movie/${movie.id}-${splitedTitle}` }}>
+          <Link to={{ pathname: `/movie/${movie.id}-${splittedTitle}` }}>
             <MovieCard movie={movie} truncateOverview={truncateOverview} />
           </Link>
         </Suspense>
