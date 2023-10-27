@@ -26,9 +26,17 @@ export const getMovieDetails = async (movieID) => {
   return movieDetailResult.data;
 };
 
-export const getCreditsCrew = async (movieID) => {
+export const getCredits = async (movieID) => {
   const crewResult = await axios.get(
     `${baseURL}/movie/${movieID}/credits?api_key=${apiKey}`
   );
-  return crewResult.data.crew;
+  return crewResult.data;
 };
+
+export const getKeywords = async (movieID) => {
+  const keywordsResult = await axios.get(
+    `${baseURL}/movie/${movieID}/keywords?api_key=${apiKey}`
+  );
+  return keywordsResult.data.keywords;
+};
+// getKeywords(575264);

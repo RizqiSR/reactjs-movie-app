@@ -10,7 +10,6 @@ const MovieCards = ({ movies, truncateOverview }) => {
     <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
       {movies.map((movie) => {
         const splittedTitle = movie.title.toLowerCase().replace(/[:-]|'|[?]/g, '').replace(/ {2,}/g, ' ').replaceAll(" ","-")
-        console.log(splittedTitle);
         return (
           <Suspense key={movie.id} fallback={<Loading/>}>
           <Link to={{ pathname: `/movie/${movie.id}-${splittedTitle}` }}>

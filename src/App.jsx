@@ -46,6 +46,7 @@ const App = () => {
               query={query}
               setQuery={setQuery}
               movies={movies}
+              setMovies={setMovies}
               truncateOverview={truncateOverview}
             />
           }
@@ -64,7 +65,7 @@ const App = () => {
             />
           }
         ></Route>
-        <Route path="/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} />}></Route>
+        <Route path="/movie/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </Router>

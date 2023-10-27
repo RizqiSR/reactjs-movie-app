@@ -4,37 +4,46 @@ import Header from "../components/Header/Header";
 import MovieDetailsHeader from "../components/Header/MovieDetailsHeader";
 import Main from "../components/Main/Main";
 import Navbar from "../components/Navbar/Navbar";
-import { getMovieDetails } from "../utils/fetchDataAPI";
+import { getMovieDetails, getCredits, getKeywords } from "../utils/fetchDataAPI";
 import { useState, useEffect } from "react";
 import Details from "../components/Details/Details";
 
 const MovieDetails = ({handleSubmitQuery, query, setQuery, movies, setMovies}) => {
-  const [movieDetails, setMovieDetails] = useState(0);
   const { movieDetailsURL } = useParams();
-  const movieID = movieDetailsURL.toString().split("-")[0];
-
-
+  const [movieDetails, setMovieDetails] = useState(0);
+  const [credits, setCredits] = useState([]);
+  const [keywords, setKeywords] = useState([])
   const navigate = useNavigate()
+
+  const movieID = movieDetailsURL.toString().split("-")[0];
 
   const handleSearchSubmit = (e) => {
     handleSubmitQuery(e)
-    navigate(`/explore?search_query=${query}`)
+    navigate(`/movie/explore?search_query=${query}`)
   };
 
   useEffect(() => {
     getMovieDetails(movieID).then((res) => {
       setMovieDetails(res);
     });
+
+    getCredits(movieID).then((res) => {
+      setCredits(res);
+    });
+
+    getKeywords(movieID).then(res => {
+      setKeywords(res)
+    })
   }, [movieID]);
 
   return (
     <>
       <Navbar handleSubmitQuery={handleSearchSubmit} query={query} setQuery={setQuery} movies={movies} setMovies={setMovies} />
-      <Header movieDetails={movieDetails} >
+      <Header movieDetails={movieDetails} credits={credits} >
         <MovieDetailsHeader movieDetails={movieDetails} />
       </Header>
       <Main>
-        <Details />
+        <Details credits={credits} movieDetails={movieDetails} keywords={keywords} />
       </Main>
       <Footer />
     </>

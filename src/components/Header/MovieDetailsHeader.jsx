@@ -3,6 +3,7 @@ import { imageURL } from "../../utils/fetchDataAPI";
 const MovieDetailsHeader = ({ movieDetails }) => {
   // Memeriksa apakakah movieDetails ada & memiliki atribut 'genres'
   const genres = movieDetails?.genres || [];
+  const productionCompanies = movieDetails?.production_companies || [];
 
   const headerMovieDetailsStyle = {
     height: "100%",
@@ -17,9 +18,6 @@ const MovieDetailsHeader = ({ movieDetails }) => {
 
   const hour = Math.floor(movieDetails.runtime / 60);
   const minutes = movieDetails.runtime % 60;
-  // genres.map((element) => {
-  //   console.log(element);
-  // });
 
   return (
     <div
@@ -39,12 +37,21 @@ const MovieDetailsHeader = ({ movieDetails }) => {
             ({new Date(movieDetails.release_date).getFullYear()})
           </span>
         </h1>
-        <p className="fw-light">{`${genres.map(genre => genre.name)} • ${hour} hour ${minutes} minutes • ${movieDetails.original_language}`}</p>
+        <p className="fw-light">{`${genres.map(
+          (genre) => genre.name
+        )} • ${hour} hour ${minutes} minutes • ${
+          movieDetails.original_language
+        }`}</p>
         <p className="fst-italic">{movieDetails.tagline}</p>
         <h5>Overview :</h5>
         <p>{movieDetails.overview}</p>
-        <div className="crew">
-          <h6></h6>
+        <h5>Production Companies</h5>
+        <div className="crew-container">
+          {productionCompanies.map((company) => (
+            <div key={company.id} className="production-companies rounded">
+              <p className="production-company-name">• {company.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

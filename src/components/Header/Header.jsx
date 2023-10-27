@@ -8,9 +8,17 @@ const Header = ({ children, movieDetails }) => {
     backgroundPosition: "right -13em top 9px",
   };
 
-  let headerBlur = {};
+  let headerBlur = {
+    backdropFilter: "blur(25px)",
+    mask: "linear-gradient(to bottom, rgb(41, 41, 41) 62.5%, rgb(41, 41, 41) 75%, rgb(41, 41, 41) 87.5%, rgb(41, 41, 41) 100%)",
+  };
 
-  let headerOverlayStyle = {};
+  let headerOverlayStyle = {
+    background:
+      "linear-gradient(to right,  rgb(30, 30, 30), rgba(52, 52, 52, .7))",
+    marginLeft: "0",
+    width: "100%",
+  };
 
   if (movieDetails) {
     headerStyle.backgroundImage = `url('${backdropsURL}${movieDetails.backdrop_path}')`;
