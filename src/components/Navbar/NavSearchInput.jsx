@@ -13,6 +13,7 @@ const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
         className="search-btn btn btn-info"
         type="submit"
         onClick={handleSubmitQuery}
+        
       >
         <i className="bi bi-search text-white"></i>
       </button>

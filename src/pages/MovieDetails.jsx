@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import MovieDetailsHeader from "../components/Header/MovieDetailsHeader";
@@ -8,11 +8,18 @@ import { getMovieDetails } from "../utils/fetchDataAPI";
 import { useState, useEffect } from "react";
 import Details from "../components/Details/Details";
 
-const MovieDetails = () => {
+const MovieDetails = ({handleSubmitQuery, query, setQuery, movies, setMovies}) => {
   const [movieDetails, setMovieDetails] = useState(0);
-  // const [movieBackdrops, setMovieBackdrops] = useState(0)
   const { movieDetailsURL } = useParams();
   const movieID = movieDetailsURL.toString().split("-")[0];
+
+
+  const navigate = useNavigate()
+
+  const handleSearchSubmit = (e) => {
+    handleSubmitQuery(e)
+    navigate(`/explore?search_query=${query}`)
+  };
 
   useEffect(() => {
     getMovieDetails(movieID).then((res) => {
@@ -22,8 +29,8 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Navbar />
-      <Header movieDetails={movieDetails}>
+      <Navbar handleSubmitQuery={handleSearchSubmit} query={query} setQuery={setQuery} movies={movies} setMovies={setMovies} />
+      <Header movieDetails={movieDetails} >
         <MovieDetailsHeader movieDetails={movieDetails} />
       </Header>
       <Main>
