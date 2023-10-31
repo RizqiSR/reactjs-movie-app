@@ -18,7 +18,7 @@ const App = () => {
   const handleSubmitQuery = (e) => {
     e.preventDefault();
     
-    if (query.length > 4) {
+    if (query.length > 3) {
       searchMovies(query).then((res) => {
         const filteredSearchedMovies = res.filter((movie) => {
           if (movie.poster_path != null && movie.vote_average > 0) {
