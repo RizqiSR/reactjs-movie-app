@@ -39,4 +39,11 @@ export const getKeywords = async (movieID) => {
   );
   return keywordsResult.data.keywords;
 };
-// getKeywords(575264);
+
+export const getReviews = async (movieID) => {
+  const reviewsResult = await axios.get(
+    `${baseURL}/movie/${movieID}/reviews?api_key=${apiKey}`
+  );
+  return reviewsResult.data.results;
+};
+// getReviews(575264)

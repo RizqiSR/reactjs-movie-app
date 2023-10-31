@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="footer text-white bg-dark pt-3">
+    <div className="footer text-white bg-dark pt-3 mt-5 text-center fst-italic">
       <a href="https://www.themoviedb.org/">
         <img
           className="tmdb-logo"

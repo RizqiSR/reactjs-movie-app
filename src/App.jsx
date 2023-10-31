@@ -8,6 +8,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import MovieDetails from "./pages/MovieDetails";
 import Explore from "./pages/Explore";
+import { TruncateReview } from "./utils/truncateCharsReview";
 // import { redirect } from "react-router-dom";
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
               movies={movies}
               setMovies={setMovies}
               truncateOverview={truncateOverview}
+              truncateReview={TruncateReview}
             />
           }
         ></Route>

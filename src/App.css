@@ -59,8 +59,10 @@ input[type="search"] {
   font-size: 12px;
 }
 
-.card-wrapper {
+.main-wrapper {
   margin: 23px 50px;
+  height: 2000px;
+  /* border: 1px solid red; */
 }
 
 .card {
@@ -152,12 +154,9 @@ input[type="search"] {
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: fit-content;
-  font-style: italic;
-  /* border: 1px solid red; */
+  /* font-style: italic; */
+  border: 1px solid red;
 }
 
 .tmdb-logo {
@@ -175,13 +174,27 @@ input[type="search"] {
   /* border: 1px solid blue; */
   height: fit-content;
   width: 75%;
+}
+
+.cast-cards {
   overflow-x: scroll;
+  overflow-y: hidden;
+  z-index: 1;
+  box-shadow: inset -60px 0 20px #1a1a1a;
+}
+
+.socials-container {
+  /* border: 1px solid blue; */
+  margin-top: 20px;
+  height: 300px;
+  /* position: absolute;
+  top: 0; */
 }
 
 .cast-card {
   width: 140px;
   height: 264px;
-  filter: drop-shadow(1px 1px 4px #0d0d0d);
+  z-index: -1;
 }
 
 .cast-card > img {
@@ -208,21 +221,26 @@ input[type="search"] {
 }
 
 .side-details-container {
-  /* border: 1px solid blue; */
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   width: 25%;
 }
 
-.details-stats-title {
-  font-size: 16px;
-  font-weight: 700;
+.keyword-badge {
+  font-weight: 300;
 }
 
-.details-stats-data {
-  font-size: 16px;
-  margin-top: -15px;
+.reviews-container {
+  border: 1px solid red;
+  /* width: fit-content; */
+}
+
+.reviewer-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.show-more-review {
+  text-decoration: none;
 }
 
 .production-company-name {

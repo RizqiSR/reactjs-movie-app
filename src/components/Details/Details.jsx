@@ -1,10 +1,14 @@
 import { imageURL } from "../../utils/fetchDataAPI";
+import { dateFormatter } from "../../utils/dateFormatter";
+import MovieReviews from "./MovieReviews";
 
-const Details = ({ credits, movieDetails, keywords }) => {
+const Details = ({ credits, movieDetails, keywords, reviews, truncateReview }) => {
   const cast = credits?.cast || [];
   const topBilledCast = cast.slice(0, 15);
-  // const keyword = keywords?.name || []
-  // console.log(keywords);
+  // const keywordsList = keywords
+  // console.log(keywordsList);
+  
+  
 
   const movieStats = [
     {
@@ -14,7 +18,7 @@ const Details = ({ credits, movieDetails, keywords }) => {
     {
       name: "Release Date",
       data: movieDetails.release_date
-        ? new Date(movieDetails.release_date).toLocaleDateString()
+        ? dateFormatter(movieDetails.release_date)
         : "-",
     },
     {
@@ -38,15 +42,15 @@ const Details = ({ credits, movieDetails, keywords }) => {
   return (
     <div className="movie-details text-white d-flex justify-content-between">
       <div className="cast-container p-3">
-        <h2>Top Billed Cast</h2>
-        <div className="cast-cards d-flex">
+        <h2 className="text-info">Top Billed Cast</h2>
+        <div className="cast-cards py-3 d-flex mb-3">
           {topBilledCast.map((topCast) => (
             <div
               key={topCast.cast_id}
               className="cast-card me-3 border-dark rounded bg-dark"
             >
               <img
-                src={`${imageURL}${topCast.profile_path}`}
+                src={ topCast.profile_path ? `${imageURL}${topCast.profile_path}` : "../src/assets/default-pic.png"}
                 alt={topCast.name}
                 className="rounded"
               />
@@ -57,23 +61,34 @@ const Details = ({ credits, movieDetails, keywords }) => {
             </div>
           ))}
         </div>
+        <div className="full-cast-link">
+          <h5 className="fw-normal">Full Cast and Crew</h5>
+        </div>
+        <div className="socials-container">
+          <div className="socials-title-container d-flex align-items-center py-0">
+            <h2 className="me-5 text-info">Socials</h2>
+            <h5 className="me-3 border-bottom border-info py-2 fw-normal">Reviews</h5>
+            <h5 className="py-2 fw-normal">Discussions</h5>
+          </div>
+          <MovieReviews reviews={reviews} truncateReview={truncateReview} />
+        </div>
       </div>
 
       <div className="side-details-container p-3">
-        <h2>Movie Stats</h2>
+        <h2 className="text-info">Movie Stats</h2>
         {movieStats.map((stat) => (
           <div key={stat.name} className="details-stats">
-            <p className="details-stats-title">{stat.name}</p>
-            <p className="details-stats-data">{stat.data}</p>
+            <h5 className="details-stats-title m-0 fs-5 fw-normal">{stat.name}</h5>
+            <p className="details-stats-data fw-lighter text-break">{stat.data}</p>
           </div>
         ))}
         <div className="keywords-container">
-          <h2>Keywords</h2>
-          {keywords.map((keyword) => {
+          <h5 className="fw-normal">Keywords</h5>
             <div className="keywords">
-              <span>{keyword.name}</span>
-            </div>;
-          })}
+              {keywords.map(keyword => (
+                <span key={keyword.id} className="keyword-badge badge bg-dark me-2 mb-2 p-2">{keyword.name}</span>
+              ))}
+            </div>
         </div>
       </div>
     </div>

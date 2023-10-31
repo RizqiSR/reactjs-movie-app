@@ -1,25 +1,38 @@
-import { useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import MovieDetailsHeader from "../components/Header/MovieDetailsHeader";
 import Main from "../components/Main/Main";
 import Navbar from "../components/Navbar/Navbar";
-import { getMovieDetails, getCredits, getKeywords } from "../utils/fetchDataAPI";
+import {
+  getMovieDetails,
+  getCredits,
+  getKeywords,
+  getReviews,
+} from "../utils/fetchDataAPI";
 import { useState, useEffect } from "react";
 import Details from "../components/Details/Details";
 
-const MovieDetails = ({handleSubmitQuery, query, setQuery, movies, setMovies}) => {
+const MovieDetails = ({
+  handleSubmitQuery,
+  query,
+  setQuery,
+  movies,
+  setMovies,
+  truncateReview
+}) => {
   const { movieDetailsURL } = useParams();
   const [movieDetails, setMovieDetails] = useState(0);
   const [credits, setCredits] = useState([]);
-  const [keywords, setKeywords] = useState([])
-  const navigate = useNavigate()
+  const [keywords, setKeywords] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const navigate = useNavigate();
 
   const movieID = movieDetailsURL.toString().split("-")[0];
 
   const handleSearchSubmit = (e) => {
-    handleSubmitQuery(e)
-    navigate(`/movie/explore?search_query=${query}`)
+    handleSubmitQuery(e);
+    navigate(`/movie/explore?search_query=${query}`);
   };
 
   useEffect(() => {
@@ -31,19 +44,35 @@ const MovieDetails = ({handleSubmitQuery, query, setQuery, movies, setMovies}) =
       setCredits(res);
     });
 
-    getKeywords(movieID).then(res => {
-      setKeywords(res)
-    })
+    getKeywords(movieID).then((res) => {
+      setKeywords(res);
+    });
+
+    getReviews(movieID).then((res) => {
+      setReviews(res);
+    });
   }, [movieID]);
 
   return (
     <>
-      <Navbar handleSubmitQuery={handleSearchSubmit} query={query} setQuery={setQuery} movies={movies} setMovies={setMovies} />
-      <Header movieDetails={movieDetails} credits={credits} >
+      <Navbar
+        handleSubmitQuery={handleSearchSubmit}
+        query={query}
+        setQuery={setQuery}
+        movies={movies}
+        setMovies={setMovies}
+      />
+      <Header movieDetails={movieDetails} credits={credits}>
         <MovieDetailsHeader movieDetails={movieDetails} />
       </Header>
       <Main>
-        <Details credits={credits} movieDetails={movieDetails} keywords={keywords} />
+        <Details
+          credits={credits}
+          movieDetails={movieDetails}
+          keywords={keywords}
+          reviews={reviews}
+          truncateReview={truncateReview}
+        />
       </Main>
       <Footer />
     </>
