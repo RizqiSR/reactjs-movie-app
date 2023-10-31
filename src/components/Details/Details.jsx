@@ -66,7 +66,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, truncateReview }) =
         </div>
         <div className="socials-container">
           <div className="socials-title-container d-flex align-items-center py-0">
-            <h2 className="me-5 text-info">Socials</h2>
+            <h2 className="me-5 mt-3 text-info">Socials</h2>
             <h5 className="me-3 border-bottom border-info py-2 fw-normal">Reviews</h5>
             <h5 className="py-2 fw-normal">Discussions</h5>
           </div>
@@ -86,7 +86,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, truncateReview }) =
           <h5 className="fw-normal">Keywords</h5>
             <div className="keywords">
               {keywords.map(keyword => (
-                <span key={keyword.id} className="keyword-badge badge bg-dark me-2 mb-2 p-2">{keyword.name}</span>
+                <span key={keyword.id} className="keyword-badge badge bg-dark me-2 mb-2 p-2 fs-6">{keyword.name}</span>
               ))}
             </div>
         </div>

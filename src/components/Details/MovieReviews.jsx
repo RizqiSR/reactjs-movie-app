@@ -7,7 +7,7 @@ const MovieReviews = ({reviews, truncateReview}) => {
 
   return (
     slicedReviews.map(slicedReview => (
-      <div key={slicedReview.id} className="reviews-container rounded border p-3 mb-3">
+    <div key={slicedReview.id} className="reviews-container rounded border p-3 mb-3">
       <div className="review-data d-flex align-items-center">
         <img className="reviewer-pic rounded-circle me-2" src={slicedReview.author_details.avatar_path ? `${imageURL}${slicedReview.author_details.avatar_path}` : "../src/assets/profile-pic.png"} alt={slicedReview.author} />
         <div className="reviewer-data">
