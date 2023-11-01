@@ -4,16 +4,24 @@ import Navbar from "../components/Navbar/Navbar";
 import Main from "../components/Main/Main";
 import MovieCards from "../components/Cards/MovieCards";
 import Footer from "../components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Explore = ({handleSubmitQuery, query, setQuery, movies, truncateOverview}) => {
   const explorePageStyle = {
     marginTop: "2em",
     padding: "0 50px"
   }
+
+  const navigate = useNavigate()
   
+  const handleSearchSubmit = (e) => {
+    handleSubmitQuery(e);
+    navigate(`/movie/explore?search_query=${query}`);
+  };
+
   return (
     <>
-      <Navbar handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} />
+      <Navbar handleSubmitQuery={handleSearchSubmit} query={query} setQuery={setQuery} />
       {/* <Header>
         <HomeHeader />
       </Header> */}

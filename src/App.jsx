@@ -67,7 +67,7 @@ const App = () => {
             />
           }
         ></Route>
-        <Route path="/movie/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} />}></Route>
+        <Route path="/movie/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} query={query} setQuery={setQuery} handleSubmitQuery={handleSubmitQuery} />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </Router>
