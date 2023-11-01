@@ -1,7 +1,7 @@
 import { imageURL } from "../../utils/fetchDataAPI";
 import { dateFormatter } from "../../utils/dateFormatter";
 
-const MovieReviews = ({reviews, truncateReview}) => {
+const MovieReviews = ({reviews, TruncateReview}) => {
   const sortedReviewByRating = reviews.sort((a,b) => b.author_details.rating - a.author_details.rating)
   const slicedReviews = sortedReviewByRating.slice(0,4)
 
@@ -17,7 +17,7 @@ const MovieReviews = ({reviews, truncateReview}) => {
       </div>
       <hr />
       <div className="review-content border-danger mt-3 fw-lighter text-break">
-        {truncateReview(slicedReview.content, 200)}
+        {TruncateReview(slicedReview.content, 200)}
       </div>
     </div>
     ))

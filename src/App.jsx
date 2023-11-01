@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import { getMovieList, searchMovies } from "./utils/fetchDataAPI";
 import { truncateOverview } from "./utils/truncateCharsOverview";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import MovieDetails from "./pages/MovieDetails";
 import Explore from "./pages/Explore";
 import { TruncateReview } from "./utils/truncateCharsReview";
-// import { redirect } from "react-router-dom";
+import Layout from "./components/Layout";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -17,7 +16,7 @@ const App = () => {
 
   const handleSubmitQuery = (e) => {
     e.preventDefault();
-    
+
     if (query.length > 3) {
       searchMovies(query).then((res) => {
         const filteredSearchedMovies = res.filter((movie) => {
@@ -39,36 +38,12 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              handleSubmitQuery={handleSubmitQuery}
-              query={query}
-              setQuery={setQuery}
-              movies={movies}
-              setMovies={setMovies}
-              truncateOverview={truncateOverview}
-            />
-          }
-        ></Route>
-        <Route path="/About" element={<About />}></Route>
-        <Route
-          path="/movie/:movieDetailsURL"
-          element={
-            <MovieDetails
-              handleSubmitQuery={handleSubmitQuery}
-              query={query}
-              setQuery={setQuery}
-              movies={movies}
-              setMovies={setMovies}
-              truncateOverview={truncateOverview}
-              truncateReview={TruncateReview}
-            />
-          }
-        ></Route>
-        <Route path="/movie/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} query={query} setQuery={setQuery} handleSubmitQuery={handleSubmitQuery} />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        <Route element={<Layout handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} movies={movies} setMovies={setMovies} />}>
+          <Route path="/" element={<Home movies={movies} setMovies={setMovies} truncateOverview={truncateOverview} />} />
+          <Route path="/movie/:movieDetailsURL" element={<MovieDetails truncateOverview={truncateOverview} TruncateReview={TruncateReview} />} />
+          <Route path="/explore" element={<Explore movies={movies} truncateOverview={truncateOverview} />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </Router>
   );

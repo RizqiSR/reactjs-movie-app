@@ -2,13 +2,9 @@ import { imageURL } from "../../utils/fetchDataAPI";
 import { dateFormatter } from "../../utils/dateFormatter";
 import MovieReviews from "./MovieReviews";
 
-const Details = ({ credits, movieDetails, keywords, reviews, truncateReview }) => {
+const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) => {
   const cast = credits?.cast || [];
   const topBilledCast = cast.slice(0, 15);
-  // const keywordsList = keywords
-  // console.log(keywordsList);
-  
-  
 
   const movieStats = [
     {
@@ -70,7 +66,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, truncateReview }) =
             <h5 className="me-3 border-bottom border-info py-2 fw-normal">Reviews</h5>
             <h5 className="py-2 fw-normal">Discussions</h5>
           </div>
-          <MovieReviews reviews={reviews} truncateReview={truncateReview} />
+          <MovieReviews reviews={reviews} TruncateReview={TruncateReview} />
         </div>
       </div>
 
