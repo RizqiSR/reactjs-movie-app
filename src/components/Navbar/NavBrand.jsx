@@ -1,6 +1,6 @@
 const NavBrand = () => {
   return (
-    <a className="navbar-brand text-info" href="#">
+    <a className="navbar-brand text-info me-0" href="#">
       Movie App
     </a>
   );

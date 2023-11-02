@@ -1,6 +1,6 @@
 const HomeHeader = () => {
   return (
-    <div className="home-header">
+    <div className="home-header p-5">
       <h1>
         WELCOME<span className="text-info">.</span>
       </h1>

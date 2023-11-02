@@ -8,7 +8,7 @@ const MovieDetailsHeader = ({ movieDetails }) => {
   const headerMovieDetailsStyle = {
     height: "100%",
     position: "relative",
-    top: "28px",
+    padding: "50px",
   };
 
   const movieDetailsPoster = {
@@ -21,12 +21,12 @@ const MovieDetailsHeader = ({ movieDetails }) => {
 
   return (
     <div
-      className="header-movie-poster d-flex p-5"
+      className="header-movie-poster d-flex"
       style={headerMovieDetailsStyle}
     >
       <img
         src={`${imageURL}${movieDetails.poster_path}`}
-        className="movie-details-poster rounded me-5 "
+        className="movie-details-poster rounded me-5 mt-2"
         alt={`${movieDetails.title} poster`}
         style={movieDetailsPoster}
       />
@@ -38,19 +38,19 @@ const MovieDetailsHeader = ({ movieDetails }) => {
           </span>
         </h1>
         <p className="fw-light">{`${genres.map(
-          (genre) => genre.name
+          (genre) => ` ${genre.name}`
         )} • ${hour} hour ${minutes} minutes • ${
           movieDetails.original_language
         }`}</p>
-        <p className="fst-italic">{movieDetails.tagline}</p>
+        <p className="fst-italic fw-light">{movieDetails.tagline}</p>
         <h5>Overview :</h5>
-        <p>{movieDetails.overview}</p>
+        <p className="fw-light">{movieDetails.overview}</p>
         <h5>Production Companies</h5>
-        <div className="crew-container">
+        <div className="crew-container fw-light">
           {productionCompanies.map((company) => (
-            <div key={company.id} className="production-companies rounded">
-              <p className="production-company-name">• {company.name}</p>
-            </div>
+            <span key={company.id} className="production-companies rounded">
+              {company.name},&nbsp;
+            </span>
           ))}
         </div>
       </div>

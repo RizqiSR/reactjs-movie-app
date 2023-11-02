@@ -28,32 +28,27 @@ const Header = ({ children, movieDetails }) => {
       top: "0",
       left: "0",
       width: "20%",
-      height: "100%",
       backdropFilter: "blur(25px)",
       mask: "linear-gradient(to bottom, rgb(41, 41, 41) 62.5%, rgb(41, 41, 41) 75%, rgb(41, 41, 41) 87.5%, rgb(41, 41, 41) 100%)",
     };
 
     headerOverlayStyle = {
-      position: "absolute",
-      top: "0",
-      left: "0",
       background:
         "linear-gradient(to right,  rgb(30, 30, 30), rgba(52, 52, 52, .7))",
       marginLeft: "0",
-      height: "620px",
       width: "100%",
-      padding: "50px",
+      padding: "30px",
     };
 
   } else {
     headerStyle.backgroundImage = `url('/img/bumi.jpg')`;
-    headerStyle.height = "350px";
+    headerStyle.height = "fit-content";
   }
 
   return (
-    <div className="header-container">
+    <div className="header-container pt-5">
       <div
-        className="header-image-wrapper header-wrapper mt-5"
+        className="header-image-wrapper header-wrapper"
         style={headerStyle}
       >
         <div className="header-blur" style={headerBlur}></div>
