@@ -12,12 +12,18 @@ body {
 .navbar {
   backdrop-filter: blur(50px);
   background-color: rgb(26,26,26,.7);
+  width: 100vw;
+}
+
+.movie-cards {
+  padding: 50px;
 }
 
 .header-container {
   display: flex;
   justify-content: center;
   height: fit-content;
+  flex-direction: column;
 }
 
 .header-wrapper {
@@ -28,6 +34,7 @@ body {
 .header-overlay {
   position: relative;
   top: 0;
+  left: 0;
   background: linear-gradient(
     to right,
     rgba(30, 30, 30, 0.6),
@@ -35,28 +42,32 @@ body {
   );
   margin-left: 0;
   height: 100%;
-  width: 100%;
-  /* padding: 50px; */
+  /* width: 100%; */
 }
+
+.header-movie-poster {
+  margin-top: 20px;
+  padding: 50px;
+}
+
+.form-control, .navbar-toggler {  
+  -webkit-box-shadow: none!important;
+  outline: -webkit-focus-ring-color auto 0px!important;
+} 
 
 input[type="search"] {
   font-size: 12px;
   font-weight: 1;
 }
-/* 
-.movie-search-input {
-  width: 40%;
-  height: 27px;
-} */
 
 .search-btn > i {
   font-size: 12px;
 }
 
 .main-wrapper {
-  margin: 23px 50px;
+  width: 100vw;
   height: fit-content;
-  /* border: 1px solid red; */
+  overflow-x: hidden;
 }
 
 .card {
@@ -102,7 +113,6 @@ input[type="search"] {
 }
 
 .overlay-rating {
-  /* border: 1px solid green; */
   height: 13px;
   margin-top: 6px;
 }
@@ -137,10 +147,11 @@ input[type="search"] {
 /*this is the little scrolly dealio in the bar*/
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #343a40;
+  background: #0dcaf0;
   height: 3px;
 }
-/*nobody needs this little scrollbar corner, I mean really, get rid of it haha*/
+
+/*nobody needs this little scrollbar corner, I mean really, get rid of it */
 ::-webkit-scrollbar-corner {
   display: none;
   height: 0px;
@@ -152,6 +163,7 @@ input[type="search"] {
   flex-direction: column;
   align-items: center;
   height: fit-content;
+  width: 100%;
 }
 
 .tmdb-logo {
@@ -164,9 +176,11 @@ input[type="search"] {
 }
 
 .cast-container {
-  /* border: 1px solid blue; */
   height: fit-content;
   width: 75%;
+  margin-left: 50px;
+  margin-top: 50px;
+  padding-right: 30px;
 }
 
 .cast-cards {
@@ -178,7 +192,6 @@ input[type="search"] {
 
 .socials-container {
   margin-top: 20px;
-  height: fit-content;
 }
 
 .cast-card {
@@ -188,7 +201,6 @@ input[type="search"] {
 }
 
 .cast-card > img {
-  /* border: 1px solid orange; */
   width: 140px;
   min-height: 140px;
   object-fit: cover;
@@ -202,7 +214,6 @@ input[type="search"] {
 .cast-name {
   font-size: 12px;
   font-weight: 700;
-  /* margin-top: 8px; */
 }
 
 .cast-character {
@@ -212,6 +223,8 @@ input[type="search"] {
 
 .side-details-container {
   width: 25%;
+  padding-top: 50px;
+  margin-right: 50px;
 }
 
 .keyword-badge {
@@ -220,7 +233,7 @@ input[type="search"] {
 
 .reviews-container {
   border: 1px solid green;
-  /* width: fit-content; */
+  width: 100%;
 }
 
 .reviewer-pic {
@@ -240,16 +253,114 @@ input[type="search"] {
 }
 
 .explore-page-title {
-  margin-top: 2em;
+  margin-bottom: -10px;
+  margin-top: 100px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 991.98px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: -15px;
+    margin-bottom: 5px;
+  }
+
   .header-image-wrapper {
-    background: red;
     height: 200px;
   }
 
-  .explore-page-title {
-    margin-top: 2.5em;
+  .home-header {
+    margin-top: 40px;
   }
+
+  .explore-page-title {
+    margin-top: 4.5em;
+    margin-left: -20px;
+  }
+
+  .movie-cards {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .header-wrapper {
+    width: 100%;
+  }
+  
+  .movie-details-poster {
+    display: none;
+  }
+
+  .header-movie-poster {
+    padding: 10px;
+    margin-top: 40px;
+  }
+
+  .header-container > .header-image-wrapper {
+    height: fit-content;
+  }
+  
+  .header-overlay {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .movie-details {
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .cast-container {
+    width: 100vw;
+    margin: 30px 0 0 0;
+    padding-left: 30px;
+  }
+
+  .cast-cards {
+    padding-right: 0;
+    width: 100vw;
+  }
+
+  .side-details-container {
+    width: 100vw;
+    margin: -40px 0 0 0;
+    padding: 30px;
+  }
+
+  .keywords-container {
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .movie-details {
+    width: 100vw;
+    margin-bottom: 30px;
+    border: 1px solid red;
+  }
+
+  .cast-container {
+    width: 62%;
+  }
+
+  .side-details-container {
+    width: 38%;
+  }
+  
 }

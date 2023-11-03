@@ -37,7 +37,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
 
   return (
     <div className="movie-details text-white d-flex justify-content-between">
-      <div className="cast-container p-3">
+      <div className="cast-container">
         <h2 className="text-info">Top Billed Cast</h2>
         <div className="cast-cards py-3 d-flex mb-3">
           {topBilledCast.map((topCast) => (
@@ -61,7 +61,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
           <h5 className="fw-normal">Full Cast and Crew</h5>
         </div>
         <div className="socials-container">
-          <div className="socials-title-container d-flex align-items-center py-0">
+          <div className="socials-title-container d-flex align-items-center">
             <h2 className="me-5 mt-3 text-info">Socials</h2>
             <h5 className="me-3 border-bottom border-info py-2 fw-normal">Reviews</h5>
             <h5 className="py-2 fw-normal">Discussions</h5>
@@ -70,8 +70,8 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
         </div>
       </div>
 
-      <div className="side-details-container p-3">
-        <h2 className="text-info">Movie Stats</h2>
+      <div className="side-details-container">
+        <h2 className="text-info mb-3">Movie Stats</h2>
         {movieStats.map((stat) => (
           <div key={stat.name} className="details-stats">
             <h5 className="details-stats-title m-0 fs-5 fw-normal">{stat.name}</h5>

@@ -10,7 +10,7 @@ const NavSearchInput = ({ handleSubmitQuery, query, setQuery }) => {
         <i className="bi bi-search text-info"></i>
       </button>
       <input
-        className="search-input form-control bg-transparent border-0 p-0 focus-ring focus-ring-dark"
+        className="search-input form-control bg-transparent border-0 p-0"
         type="search"
         placeholder="Search"
         aria-label="Search"

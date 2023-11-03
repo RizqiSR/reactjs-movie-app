@@ -1,7 +1,7 @@
 const NavbarCollapseBtn = () => {
   return (
     <button
-      className="navbar-toggler border-0 p-0 focus-ring focus-ring-dark"
+      className="navbar-toggler border-0 p-0"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"

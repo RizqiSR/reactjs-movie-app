@@ -1,5 +1,5 @@
 import NavbarContainer from "./NavbarContainer";
-// import NavBrand from "./NavBrand";
+import NavBrand from "./NavBrand";
 import NavbarCollapseBtn from "./NavbarCollapseBtn";
 import NavList from "./NavList";
 import NavSearchInput from "./NavSearchInput";
@@ -8,7 +8,7 @@ import NavSearchInput from "./NavSearchInput";
 const Navbar = ({handleSubmitQuery, query, setQuery}) => {
   return (
     <NavbarContainer>
-        {/* <NavBrand /> */}
+        <NavBrand />
         <NavSearchInput
           handleSubmitQuery={handleSubmitQuery}
           query={query}

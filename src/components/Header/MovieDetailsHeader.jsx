@@ -8,7 +8,7 @@ const MovieDetailsHeader = ({ movieDetails }) => {
   const headerMovieDetailsStyle = {
     height: "100%",
     position: "relative",
-    padding: "50px",
+    // padding: "50px",
   };
 
   const movieDetailsPoster = {
@@ -20,41 +20,40 @@ const MovieDetailsHeader = ({ movieDetails }) => {
   const minutes = movieDetails.runtime % 60;
 
   return (
-    <div
-      className="header-movie-poster d-flex"
-      style={headerMovieDetailsStyle}
-    >
-      <img
-        src={`${imageURL}${movieDetails.poster_path}`}
-        className="movie-details-poster rounded me-5 mt-2"
-        alt={`${movieDetails.title} poster`}
-        style={movieDetailsPoster}
-      />
-      <div>
-        <h1 className="fw-bolder">
-          {movieDetails.title}{" "}
-          <span className="fw-light">
-            ({new Date(movieDetails.release_date).getFullYear()})
-          </span>
-        </h1>
-        <p className="fw-light">{`${genres.map(
-          (genre) => ` ${genre.name}`
-        )} • ${hour} hour ${minutes} minutes • ${
-          movieDetails.original_language
-        }`}</p>
-        <p className="fst-italic fw-light">{movieDetails.tagline}</p>
-        <h5>Overview :</h5>
-        <p className="fw-light">{movieDetails.overview}</p>
-        <h5>Production Companies</h5>
-        <div className="crew-container fw-light">
-          {productionCompanies.map((company) => (
-            <span key={company.id} className="production-companies rounded">
-              {company.name},&nbsp;
+    <>
+      <div className="header-movie-poster d-flex" style={headerMovieDetailsStyle}>
+        <img
+          src={`${imageURL}${movieDetails.poster_path}`}
+          className="movie-details-poster rounded me-5 mt-2 w-25"
+          alt={`${movieDetails.title} poster`}
+          style={movieDetailsPoster}
+        />
+        <div className="movie-details-stats">
+          <h1 className="fw-bolder">
+            {movieDetails.title}{" "}
+            <span className="fw-light">
+              ({new Date(movieDetails.release_date).getFullYear()})
             </span>
-          ))}
+          </h1>
+          <p className="fw-light">{`${genres.map(
+            (genre) => ` ${genre.name}`
+          )} • ${hour} hour ${minutes} minutes • ${
+            movieDetails.original_language
+          }`}</p>
+          <p className="fst-italic fw-light">{movieDetails.tagline}</p>
+          <h5>Overview :</h5>
+          <p className="fw-light text-break">{movieDetails.overview}</p>
+          <h5>Production Companies</h5>
+          <div className="crew-container fw-light">
+            {productionCompanies.map((company) => (
+              <span key={company.id} className="production-companies rounded">
+                {company.name},&nbsp;
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

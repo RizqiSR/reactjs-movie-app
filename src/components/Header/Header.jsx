@@ -4,7 +4,7 @@ const Header = ({ children, movieDetails }) => {
   const headerStyle = {
     backgroundImage: "",
     backgroundSize: "cover",
-    height: "",
+    // height: "",
     backgroundPosition: "right -13em top 9px",
   };
 
@@ -22,7 +22,7 @@ const Header = ({ children, movieDetails }) => {
 
   if (movieDetails) {
     headerStyle.backgroundImage = `url('${backdropsURL}${movieDetails.backdrop_path}')`;
-    headerStyle.height = "570px";
+    // headerStyle.height = "fit-content";
     headerBlur = {
       position: "relative",
       top: "0",
@@ -35,8 +35,7 @@ const Header = ({ children, movieDetails }) => {
     headerOverlayStyle = {
       background:
         "linear-gradient(to right,  rgb(30, 30, 30), rgba(52, 52, 52, .7))",
-      marginLeft: "0",
-      width: "100%",
+      margin: "0",
       padding: "30px",
     };
 
@@ -53,7 +52,7 @@ const Header = ({ children, movieDetails }) => {
       >
         <div className="header-blur" style={headerBlur}></div>
         <div
-          className="header-overlay d-flex text-white row align-items-center"
+          className="header-overlay text-white align-items-start d-flex"
           style={headerOverlayStyle}
         >
           {children}

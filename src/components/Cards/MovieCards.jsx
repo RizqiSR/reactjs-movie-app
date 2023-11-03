@@ -7,7 +7,7 @@ const MovieCard = lazy(() => import("./MovieCard"))
 const MovieCards = ({ movies, truncateOverview }) => {
   // console.log(movies);
   return (
-    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
+    <div className="movie-cards row row-cols-2 row-cols-sm-3 row-cols-md-6">
       {movies.map((movie) => {
         const splittedTitle = movie.title.toLowerCase().replace(/[:-]|'|[?]/g, '').replace(/ {2,}/g, ' ').replaceAll(" ","-")
         return (
