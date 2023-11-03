@@ -232,7 +232,6 @@ input[type="search"] {
 }
 
 .reviews-container {
-  border: 1px solid green;
   width: 100%;
 }
 
@@ -352,7 +351,6 @@ input[type="search"] {
   .movie-details {
     width: 100vw;
     margin-bottom: 30px;
-    border: 1px solid red;
   }
 
   .cast-container {
