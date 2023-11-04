@@ -1,6 +1,7 @@
 import { imageURL } from "../../utils/fetchDataAPI";
 import { dateFormatter } from "../../utils/dateFormatter";
 import MovieReviews from "./MovieReviews";
+import { Link } from "react-router-dom";
 
 const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) => {
   const cast = credits?.cast || [];
@@ -20,7 +21,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
     {
       name: "Homepage",
       data: movieDetails.homepage ? (
-        <a href={movieDetails.homepage}>{movieDetails.homepage}</a>
+        <Link style={{cursor: "pointer", textDecoration: "none"}} to={movieDetails.homepage}>{movieDetails.homepage}</Link>
       ) : (
         "-"
       ),
@@ -46,7 +47,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
               className="cast-card me-3 border-dark rounded bg-dark"
             >
               <img
-                src={ topCast.profile_path ? `${imageURL}${topCast.profile_path}` : "/default-pic.png"}
+                src={ topCast.profile_path ? `${imageURL}${topCast.profile_path}` : "../default-pic.png"}
                 alt={topCast.name}
                 className="rounded"
               />
@@ -62,7 +63,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
         </div>
         <div className="socials-container">
           <div className="socials-title-container d-flex align-items-center">
-            <h2 className="me-5 mt-3 text-info">Socials</h2>
+            <h2 className="me-4 mt-3 text-info">Socials</h2>
             <h5 className="me-3 border-bottom border-info py-2 fw-normal">Reviews</h5>
             <h5 className="py-2 fw-normal">Discussions</h5>
           </div>
@@ -75,7 +76,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
         {movieStats.map((stat) => (
           <div key={stat.name} className="details-stats">
             <h5 className="details-stats-title m-0 fs-5 fw-normal">{stat.name}</h5>
-            <p className="details-stats-data fw-lighter text-break">{stat.data}</p>
+            <p className="details-stats-data fw-lighter text-break text-white">{stat.data}</p>
           </div>
         ))}
         <div className="keywords-container">

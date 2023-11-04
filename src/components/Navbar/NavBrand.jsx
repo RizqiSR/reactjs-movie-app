@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 const NavBrand = () => {
   return (
-    <a className="navbar-brand text-info me-lg-5 ms-lg-2" href="#">
+    <Link className="navbar-brand text-info me-lg-5 ms-lg-2" to="/">
       Movie App
-    </a>
+    </Link>
   );
 }
 

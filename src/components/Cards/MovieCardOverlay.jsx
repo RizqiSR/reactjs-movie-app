@@ -20,7 +20,7 @@ const MovieCardOverlay = ({ movie, truncateOverview }) => {
           </p>
           <img
             className="rating-star"
-            src={`/img/ratings/rating-${Math.floor(movie.vote_average)}.png`}
+            src={`./img/ratings/rating-${Math.floor(movie.vote_average)}.png`}
             alt=""
           />
         </div>

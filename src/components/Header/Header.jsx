@@ -40,7 +40,7 @@ const Header = ({ children, movieDetails }) => {
     };
 
   } else {
-    headerStyle.backgroundImage = `url('/img/bumi.jpg')`;
+    headerStyle.backgroundImage = `url('./img/bumi.jpg')`;
     headerStyle.height = "fit-content";
   }
 
