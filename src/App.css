@@ -390,11 +390,11 @@ input[type="search"] {
     margin-bottom: 18px;
   }
 
-  .footer-contact {
-    width: 78%;
+  .footer-contact-detail > i {
+    display: none;
   }
 
-  .footer-about, .footer-social {
+  .footer-about, .footer-social, .footer-contact {
     text-align: center;
   }
 

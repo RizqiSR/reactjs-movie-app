@@ -26,7 +26,7 @@ const Footer = () => {
         <Link to="https://www.themoviedb.org/">
           <img
             className="tmdb-logo"
-            src="..\TMDb_logo.svg"
+            src="./TMDb_logo.svg"
             alt="The Movie Database Logo"
           />
         </Link>
