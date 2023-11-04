@@ -46,7 +46,7 @@ const Details = ({ credits, movieDetails, keywords, reviews, TruncateReview }) =
               className="cast-card me-3 border-dark rounded bg-dark"
             >
               <img
-                src={ topCast.profile_path ? `${imageURL}${topCast.profile_path}` : "../src/assets/default-pic.png"}
+                src={ topCast.profile_path ? `${imageURL}${topCast.profile_path}` : "/default-pic.png"}
                 alt={topCast.name}
                 className="rounded"
               />
