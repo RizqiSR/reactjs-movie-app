@@ -36,7 +36,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router basename="/reactjs-movie-app">
+    <Router basename="/reactjs-movie-app/">
       <Routes>
         <Route element={<Layout handleSubmitQuery={handleSubmitQuery} query={query} setQuery={setQuery} movies={movies} setMovies={setMovies} />}>
           <Route path="/" element={<Home movies={movies} setMovies={setMovies} truncateOverview={truncateOverview} />} />
